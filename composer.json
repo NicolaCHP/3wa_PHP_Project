@@ -1,0 +1,17 @@
+{
+    "name": "nicola/mvc-project",
+    "description": "Create a php application",
+    "type": "project",
+    "authors": [
+        {
+            "name": "chip0001",
+            "email": "nicola.chipot@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^6.1"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.1"
+    }
+}
