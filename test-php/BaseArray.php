@@ -22,12 +22,5 @@ class BaseArray{
             push($this->array,[$mykey, $value]);
         }
     }
-
-    //noter
-    //Effectuer un filtrage sur le tableau via $fn
-    //Ne pas  modifier $this->array
-    //retourner le filtre
-    //faire les test aussi
-    public function filter(callable $fn):array
 }
 

@@ -1,9 +1,3 @@
-<?php
-
-use Symfony\Component\HttpFoundation\Request;
-
-require_once __DIR__.'/../vendor/autoload.php';
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +8,6 @@ require_once __DIR__.'/../vendor/autoload.php';
     <title>Home</title>
 </head>
 <body>
-    <h1>My home page</h1>
+    <h1>My blog_post page</h1>
 </body>
 </html>

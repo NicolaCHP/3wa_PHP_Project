@@ -18,22 +18,36 @@ $method = $request->getMethod();
     // Response
     // JsonResponse
 
-// questions :
-    // requpete vs réponse http
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Questions :
+    // requete vs réponse http
+    /*  Lors d'un transfert de données d'un protocole HTTP, l'utilisateurs effectue une reqûete, cette requète suivre d'une réponse envoyé par le serveur. */
     // code http ?
+    /* Numéros de 3 chiffres déterminant si la requête à réussit ou non.*/
     // status http ?
+    /*
+        1XX : réponses informatives.
+        2XX : réponses de succès.
+        3XX : redirections.
+        4XX : réponses d'erreur côté client.
+        5XX : réponses d'erreur côté serveur.
+    */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     // headers
-        // types mimes
+        // types mime
 // liens :
     // Général : https://developer.mozilla.org/fr/docs/Web/HTTP/Overview
     // Headers : https://developer.mozilla.org/fr/docs/Web/HTTP/Headers
     // Méthodes http : https://developer.mozilla.org/fr/docs/Web/HTTP/Methods
 
 // créer une fonction chargée de rendre le html
+
 // rappel : never trust user input
 $content = '';
 // accepte uniquement les requêtes 'GET'
-if ($path === '/home') {
+if ($path === '/home' && $method === 'GET') {
     // doit être mis dans une fonction réutilisable
     ob_start();
         require_once __DIR__.'/../templates/home.html';
@@ -46,9 +60,25 @@ if ($path === '/home') {
 // définir une route about
 // accepte uniquement les requête GET
 
+elseif ($path === '/about' && $method === 'GET') {
+    // doit être mis dans une fonction réutilisable
+    ob_start();
+        require_once __DIR__.'/../templates/about.html';
+    $content = ob_get_clean();
+    // par défaut
+    header('Content-Type: text/html');
+}
+
 // définir une route blog
 // accepte uniquement les requêtes GET et POST
-
+elseif ($path === '/blog' && ($method === 'GET' || $method === 'POST')) {
+    // doit être mis dans une fonction réutilisable
+    ob_start();
+        require_once __DIR__.'/../templates/blog.html';
+    $content = ob_get_clean();
+    // par défaut
+    header('Content-Type: text/html');
+}
 // définir une route blog/post
 // accepte uniquement les requêtes GET
 // récupére un paramètre id et l'affiche dans la page blog_show.html
